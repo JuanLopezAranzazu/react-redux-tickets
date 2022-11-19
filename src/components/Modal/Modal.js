@@ -10,18 +10,8 @@ const Modal = ({ setOpenModal }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const regexLetters = /^[A-Za-z]+$/;
-    if (
-      message.length > 0 &&
-      priority.length > 0 &&
-      regexLetters.test(message)
-    ) {
-      dispatch({
-        type: "ADD_TICKET",
-        payload: { message, priority },
-      });
-      setOpenModal(false);
-    }
+    dispatch({ type: "ADD_TICKET", payload: { message, priority } });
+    setOpenModal(false);
   }
 
   useEffect(() => {
